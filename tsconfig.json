@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "artifacts/build/main",
+    "rootDir": "src",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSourceMap": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "traceResolution": false,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "pretty": true,
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules/**"],
+  "compileOnSave": false,
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "artifacts/docs",
+    "exclude": "**/*.test.ts"
+  }
+}
