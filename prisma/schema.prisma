@@ -9,3 +9,21 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Course {
+  title             String      @unique
+  canvasId          String      @id
+  code              CourseCode? @relation(fields: [courseCodeSubject, courseCodeCourse, courseCodeSection], references: [subject, course, section])
+  courseCodeSubject String?
+  courseCodeCourse  Int?
+  courseCodeSection Int?
+}
+
+model CourseCode {
+  subject String
+  course  Int
+  section Int
+  Course  Course[]
+
+  @@id([subject, course, section])
+}
