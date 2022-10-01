@@ -61,7 +61,10 @@
     "prepare": "husky install",
     "mi-gen" : "npx prisma migrate dev && prisma generate"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@prisma/client": "^4.4.0",
+    "example": "file:../flame-course/example-1.0.0.tgz"
+  },
   "devDependencies": {
     "@ava/typescript": "^3.0.1",
     "@commitlint/cli": "^17.0.3",
