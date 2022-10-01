@@ -1,11 +1,34 @@
-/**
- * A simple function meant to demonstrate all the features of TypeLaunch, from testing to docs to more!
- * This simply greets the user in the console and returns what it sent to the console.
- * @param name - The name of the person you'd like to greet
- * @returns A string of the greeting with the name inserted
- */
-export const greet = (name: string) => {
-  const message = `Hello there, ${name}`;
-  console.log(message); // TODO take a look at Todo Tree!
-  return message;
-};
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+async function main() {
+  const deleteCourses = prisma.course.deleteMany();
+  const deleteCourseCodes = prisma.courseCode.deleteMany();
+
+  // The transaction runs synchronously so deleteCourses must run last.
+  const transaction = await prisma.$transaction([
+    deleteCourseCodes,
+    deleteCourses,
+  ]);
+  console.log(transaction);
+
+  const course = await prisma.course.create({
+    data: {
+      title: "Organic Chemistry I",
+      canvasId: 308038,
+      code: { create: { subject: "CHEM", course: 301, section: 1 } },
+    },
+  });
+  console.log(course);
+}
+
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
