@@ -58,7 +58,8 @@
     "lint-staged": "lint-staged",
     "release": "shipjs prepare",
     "___Section:underhood": "echo 'run commands under the hood'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "mi-gen" : "npx prisma migrate dev && prisma generate"
   },
   "dependencies": {},
   "devDependencies": {
