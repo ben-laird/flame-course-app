@@ -11,12 +11,12 @@ datasource db {
 }
 
 model Course {
-  title             String      @unique
-  canvasId          String      @id
-  code              CourseCode? @relation(fields: [courseCodeSubject, courseCodeCourse, courseCodeSection], references: [subject, course, section])
-  courseCodeSubject String?
-  courseCodeCourse  Int?
-  courseCodeSection Int?
+  title    String      @unique
+  canvasId Int         @id @unique
+  code     CourseCode? @relation(fields: [subject, course, section], references: [subject, course, section])
+  subject  String?
+  course   Int?
+  section  Int?
 }
 
 model CourseCode {
