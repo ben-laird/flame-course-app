@@ -10,5 +10,11 @@
       "request": "launch",
       "type": "node-terminal"
     },
+    {
+      "command": "bun run check:ts",
+      "name": "Debug application with Bun",
+      "request": "launch",
+      "type": "node-terminal"
+    },
   ]
 }
