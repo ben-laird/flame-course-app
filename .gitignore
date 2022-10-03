@@ -4,6 +4,10 @@ artifacts
 prisma/*
 !prisma/schema.prisma
 
+**/canvasSchema.json
+**/schemaRequest.gql
+apollo.config.ts
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,node,macos
 
