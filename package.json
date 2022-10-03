@@ -59,11 +59,11 @@
     "release": "shipjs prepare",
     "___Section:underhood": "echo 'run commands under the hood'",
     "prepare": "husky install",
-    "mi-gen" : "npx prisma migrate dev && prisma generate"
+    "mi-gen": "npx prisma migrate dev && prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^4.4.0",
-    "example": "file:../flame-course/example-1.0.0.tgz"
+    "example": "file:../flame-course/artifacts/example-1.0.0.tgz"
   },
   "devDependencies": {
     "@ava/typescript": "^3.0.1",
